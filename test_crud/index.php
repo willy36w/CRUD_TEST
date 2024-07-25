@@ -9,11 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>測試</title>
     <style>
-    #nav {
-        /* display: flex;
-        flex-direction: row; */
 
-    }
     </style>
 </head>
 
@@ -29,15 +25,15 @@
         $rows = $Tests->all();
         foreach ($rows as $row => $value) {
         ?>
-        <tr>
-            <td><?= $value['name'] ?></td>
-            <td><?= $value['number'] ?></td>
-            <td><?= $value['adr'] ?></td>
-            <td style="display: flex;">
-                <button onclick="location.href='./backend/edit.php?id=<?= $value['id'] ?>'">編輯</button>
-                <button onclick="location.href='./api/del.php?id=<?= $value['id'] ?>'">刪除</button>
-            </td>
-        </tr>
+            <tr>
+                <td><?= $value['name'] ?></td>
+                <td><?= $value['number'] ?></td>
+                <td><?= $value['adr'] ?></td>
+                <td style="display: flex;">
+                    <button onclick="location.href='./backend/edit.php?id=<?= $value['id'] ?>'">編輯</button>
+                    <button onclick="location.href='./api/del.php?id=<?= $value['id'] ?>'">刪除</button>
+                </td>
+            </tr>
         <?php
         }
         ?>
