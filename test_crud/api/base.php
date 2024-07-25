@@ -226,4 +226,5 @@ function dd($array)
 }
 
 $Tests = new DB("tests");
+$Images = new DB("images");
 // dd($Tests->all());
