@@ -9,7 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>測試</title>
     <style>
-
+        * {
+            box-sizing: border-box;
+        }
     </style>
 </head>
 
@@ -49,48 +51,35 @@
                     <th>圖片</th>
                     <th>文字</th>
                     <th style="width: 5%;">顯示</th>
+                    <th style="width: 10%;">option</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>
-                        <img src="./images/img.jpg" alt="" style="width: 50%;">
-                    </td>
-                    <td>
-                        <label for=""></label>
-                        <input type="text" name="text" id="">
-                    </td>
-                    <td><input type="checkbox" name="" id="" value=""></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>
-                        <img src="" alt="">
-                    </td>
-                    <td>
-                        <label for=""></label>
-                        <input type="text" name="text" id="">
-                    </td>
-                    <td><input type="checkbox" name="" id="" value=""></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>
-                        <img src="" alt="">
-                    </td>
-                    <td>
-                        <label for=""></label>
-                        <input type="text" name="text" id="">
-                    </td>
-                    <td><input type="checkbox" name="" id="" value=""></td>
-                </tr>
+                <?php
+                $imgs = $Images->all();
+                foreach ($imgs as $img => $value) {
+                ?>
+                    <tr>
+                        <td><?= $value['id']; ?></td>
+                        <td>
+                            <img src="./images/<?= $value['img']; ?>" alt="" style="width: 30%;">
+                        </td>
+                        <td>
+                            <input type="text" name="text" id="text" value="<?= $value['text'] ?>">
+                        </td>
+                        <td><input type="checkbox" name="sh" id="" value="<?= $value['id'] ?>"></td>
+                        <td style="display: flex;">
+                            <a href=""><button>刪除</button></a>
+                            <a href="./backend/edit_img.php?id=<?= $value['id'] ?>"><button>編輯</button></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
         <div>
-            <a href="add_img.php"><button>新增</button></a>
-            <a href=""><button>刪除</button></a>
-            <a href=""><button>編輯</button></a>
+            <a href="./backend/add_img.php"><button>新增</button></a>
         </div>
         <br>
     </div>
