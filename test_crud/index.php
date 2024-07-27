@@ -9,9 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>測試</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+    * {
+        box-sizing: border-box;
+    }
     </style>
 </head>
 
@@ -27,15 +27,15 @@
         $rows = $Tests->all();
         foreach ($rows as $row => $value) {
         ?>
-            <tr>
-                <td><?= $value['name'] ?></td>
-                <td><?= $value['number'] ?></td>
-                <td><?= $value['adr'] ?></td>
-                <td style="display: flex;">
-                    <button onclick="location.href='./backend/edit.php?id=<?= $value['id'] ?>'">編輯</button>
-                    <button onclick="location.href='./api/del.php?id=<?= $value['id'] ?>'">刪除</button>
-                </td>
-            </tr>
+        <tr>
+            <td><?= $value['name'] ?></td>
+            <td><?= $value['number'] ?></td>
+            <td><?= $value['adr'] ?></td>
+            <td style="display: flex;">
+                <button onclick="location.href='./backend/edit.php?id=<?= $value['id'] ?>'">編輯</button>
+                <button onclick="location.href='./api/del.php?id=<?= $value['id'] ?>'">刪除</button>
+            </td>
+        </tr>
         <?php
         }
         ?>
@@ -59,20 +59,20 @@
                 $imgs = $Images->all();
                 foreach ($imgs as $img => $value) {
                 ?>
-                    <tr>
-                        <td><?= $value['id']; ?></td>
-                        <td>
-                            <img src="./images/<?= $value['img']; ?>" alt="" style="width: 30%;">
-                        </td>
-                        <td>
-                            <input type="text" name="text" id="text" value="<?= $value['text'] ?>">
-                        </td>
-                        <td><input type="checkbox" name="sh" id="" value="<?= $value['id'] ?>"></td>
-                        <td style="display: flex;">
-                            <a href=""><button>刪除</button></a>
-                            <a href="./backend/edit_img.php?id=<?= $value['id'] ?>"><button>編輯</button></a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td><?= $value['id']; ?></td>
+                    <td>
+                        <img src="./images/<?= $value['img']; ?>" alt="" style="width: 30%;">
+                    </td>
+                    <td>
+                        <input type="text" name="text" id="text" value="<?= $value['text'] ?>">
+                    </td>
+                    <td><input type="checkbox" name="sh" id="" value="<?= $value['id'] ?>"></td>
+                    <td style="display: flex;">
+                        <a href="./api/del_img.php?id=<?= $value['id'] ?>"><button>刪除</button></a>
+                        <a href="./backend/edit_img.php?id=<?= $value['id'] ?>"><button>編輯</button></a>
+                    </td>
+                </tr>
                 <?php
                 }
                 ?>

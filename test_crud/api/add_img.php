@@ -6,6 +6,4 @@ if (!empty($_FILES['img']['tmp_name'])) {
     $sql = "insert into `images`(`img`,`text`) value('{$_FILES['img']['name']}','{$_POST['text']}')";
     $pdo->exec($sql);
     to("../index.php");
-    // $Images->save($sql);
-    // dd($_FILES);
 }
